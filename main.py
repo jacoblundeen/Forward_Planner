@@ -21,7 +21,19 @@ def forward_planner(start_state: List, goal: List, actions: Dict, debug=False) -
                             continue
                         else:
                             plan.append(apply_result(temp2, temp, result))
-    return plan
+    final_plan = create_output(plan)
+    return final_plan
+
+
+def create_output(plan: List) -> List:
+    new_plan = []
+    for el in plan:
+        for tup in el:
+            if len(tup) == 2:
+                new_plan.append('(' + tup[0] + ' ' + tup[1] + ')')
+            else:
+                new_plan.append('(' + tup[0] + ' ' + tup[1] + ' ' + tup[2] + ')')
+    return new_plan
 
 
 def apply_result(list_expression1, list_expression2, result) -> Tuple[List[str], List[str]]:
