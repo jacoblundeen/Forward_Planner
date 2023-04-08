@@ -56,7 +56,7 @@ def apply_result(list_expression1, list_expression2, result) -> Tuple[List[str],
     return list_expression1, list_expression2
 
 
-def list_check(parsed_expression: List):
+def list_check(parsed_expression: List) -> List:
     if isinstance(parsed_expression, list):
         return parsed_expression
     return [parsed_expression]
@@ -127,6 +127,8 @@ if __name__ == "__main__":
         }
     }
 
-    plan = forward_planner(start_state, goal, actions)
-    for el in plan:
-        print(el)
+    # plan = forward_planner(start_state, goal, actions)
+    # for el in plan:
+    #     print(el)
+    plan1 = [(['me', 'saw'], ['agent', 'Home', '?seller'])]
+    create_output(plan1)
